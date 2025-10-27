@@ -33,7 +33,14 @@ const PROJECTS = [
 
 export function Projects() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-20 bg-neutral-950">
+    <motion.section
+      id="projects"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-20 bg-neutral-950"
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -59,11 +66,12 @@ export function Projects() {
             transition={{ delay: i * 0.1 }}
             className="group rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/60 hover:bg-neutral-800/80 transition-all duration-300 hover:shadow-[0_8px_25px_-8px_rgba(0,0,0,0.5)]"
           >
-            <div className="relative aspect-[16/10] overflow-hidden">
+            <div className="relative aspect-16/10 overflow-hidden">
               <Image
                 src={p.img}
                 alt={p.title}
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -106,6 +114,6 @@ export function Projects() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

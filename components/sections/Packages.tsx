@@ -52,15 +52,24 @@ const PACKAGES = [
 
 export function Packages() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-20 bg-neutral-950">
+    <motion.section
+      id="packages"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-20 bg-neutral-950"
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4">Packages</h2>
-        <p className="text-neutral-400 max-w-2xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-neutral-100">
+          Packages
+        </h2>
+        <p className="text-neutral-400 max-w-2xl mx-auto text-sm sm:text-base">
           Transparent pricing, modern stack, and clear deliverables. Choose the
           plan that fits your business goals.
         </p>
@@ -78,7 +87,7 @@ export function Packages() {
               transition={{ delay: i * 0.1 }}
             >
               <Card
-                className={`h-full flex flex-col justify-between border ${pkg.accent} bg-neutral-900/60 hover:bg-neutral-50 backdrop-blur-sm`}
+                className={`h-full flex flex-col justify-between border ${pkg.accent} bg-neutral-900/60 hover:bg-neutral-800 backdrop-blur-sm transition-all duration-300 hover:shadow-[0_8px_25px_-8px_rgba(0,0,0,0.5)]`}
               >
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
@@ -113,8 +122,8 @@ export function Packages() {
                       {pkg.price}
                     </p>
                     <Link
-                      aria-label=""
-                      href={`/contact?package=${pkg.title.toLowerCase()}`}
+                      aria-label={`Request ${pkg.title} package`}
+                      href={`#contact`}
                     >
                       <Button
                         className="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-sm sm:text-base"
@@ -130,6 +139,6 @@ export function Packages() {
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 }
