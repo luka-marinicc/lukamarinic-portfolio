@@ -112,7 +112,10 @@ export function Packages() {
                     <p className="text-lg mb-4 text-neutral-300 font-bold">
                       {pkg.price}
                     </p>
-                    <Link href={`/contact?package=${pkg.title.toLowerCase()}`}>
+                    <Link
+                      aria-label=""
+                      href={`/contact?package=${pkg.title.toLowerCase()}`}
+                    >
                       <Button
                         className="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-sm sm:text-base"
                         size="lg"

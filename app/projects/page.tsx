@@ -1,7 +1,5 @@
+import { Projects } from "@/components/sections/Projects";
+
 export default function ProjectsPage() {
-  return (
-    <div className="p-12 text-center text-neutral-400">
-      Projects showcase coming soon
-    </div>
-  );
+  return <Projects />;
 }
